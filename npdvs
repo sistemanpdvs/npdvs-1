@@ -125,7 +125,7 @@ checkinternet () {
 }
 ##################
 clirestart () {
-  $spath/npdvs.sh
+  $spath/npdvs
   exit
 }
 # New Version Check & Update
@@ -135,7 +135,7 @@ cliupdate () {
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read input
   echo && echo -e " Atualizando ${b}CliPDVs${end}, Por favor aguarde..."
-  wget https://raw.githubusercontent.com/nilsonlinux/CliPDVs/master/npdvs.sh -O $spath/npdvs.sh &>/dev/null
+  wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs -O $spath/npdvs &>/dev/null
   sleep 1 && echo -e " ${b}CliPDVs${end} Atualização aplicada com sucesso "
   sleep 1 && echo -e " Restartando ${b}CliPDVs${end}..."
   sleep 2
@@ -143,8 +143,8 @@ cliupdate () {
 }
 # New Version Check & Update
 CLiCheck () {
-  changelog=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/CliPDVs/master/changelog.txt)
-  uversion=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/CliPDVs/master/version.txt)
+  changelog=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/changelog.txt)
+  uversion=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/version.txt)
   if [[ $uversion > $version ]]; then
     echo -e " Checando atualização: ${r}Nova versão disponível"
     echo && echo -e " Versão em uso: ${y}$version${endc} ${g} ➤  Nova versão: ${endc}${y}$uversion${endc}"
