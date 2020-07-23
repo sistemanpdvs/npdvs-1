@@ -4,15 +4,14 @@ i#!/bin/bash
 # Automatização sobre demanda
 # Nilsonlinux 23/07/2020
 # Colabore com o projeto
-# https://github.com/nilsonlinux/npdvs
 # -------------------------------------------------------
 # Variables
 # b=bold u=underline bl=black r=red g=green
 # y=yellow bu=blue m=magenta c=cyan w=white
 # endc=end-color end=end-argument
-pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
+PDVS_IPS='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 gt="100"
-version="2.8"
+version="2.7"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
@@ -199,7 +198,7 @@ echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs)${end}"
 
 loja
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 clear
 ##########
   clear
@@ -208,11 +207,11 @@ echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs) ${end}"
 
 loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA REINICIAR: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛${end}"
 sleep 1
-if ! ping -c 1 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -224,7 +223,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -234,9 +233,9 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$fx.$ip "reboot";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "reboot";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end -$bu $IPSERV.$fx.$ip $end- $vr Conectado ✔$end"
+echo -e "$a IP $end -$bu $IPSERV.$FX.$IP $end- $vr Conectado ✔$end"
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -253,7 +252,7 @@ echo -e " ${c}ATUALIZAÇÃO DOS TERMINAIS (NPDVs)${end}"
 
 loja
 echo -e "DIGITE A ${c}FAIXA${end} ${br}REFERÊNTE A SUA FILIAL: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 clear
 ##########
   clear
@@ -262,11 +261,11 @@ echo -e " ${c}ATUALIZAÇÃO DOS TERMINAIS (NPDVs) ${end}"
 
 loja
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}QUE DESEJA ATUALIZAR: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${c}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛ ${end}"
 sleep 1
-if ! ping -c 2 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 2 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -278,7 +277,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -288,9 +287,9 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$fx.$ip "it-update-pdv.sh";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "it-update-pdv.sh";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end - $bu $IPSERV.$fx.$ip $end - $vr Conectado$end"
+echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -310,7 +309,7 @@ echo -e "${v}---------------------------------------------------${end}
 ${v}--------------------------------------------------- ${end}"
 echo -e " DIGITE A${y} FAIXA DA FILIAL${end} ${v}QUE DESEJA REINICIALIZAR OS TERMINAIS: ${end}"
 echo -e " Caso queira desistir${y}, apenas deixe o campo em branco e dê enter... ${end}"
-read -p " $IPSERV." $read faixa
+read -p " $IPSERV." $read FAIXA
 clear
 echo -e "${v}--------------------------------------------------- ${end}"
 echo -e "${y}⌛Aguarde enquanto executo o comando 
@@ -318,10 +317,10 @@ ${v}reboot${end} ${y}em todos os terminais ⌛ ${end}
 ${v}--------------------------------------------------- ${end}"
 ##############
 ${pdv_ips}
-for pdvs_ips in ${pdvs_ips}
+for PDVS_IPS in ${PDVS_IPS}
 do
-    echo -e "${v}Reiniciando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${faixa}.${pdvs_ips}${endc} ⌛"
-    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${faixa}.${pdvs_ips} "reboot";
+    echo -e "${v}Reiniciando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${FAIXA}.${PDVS_IPS}${endc} ⌛"
+    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${FAIXA}.${PDVS_IPS} "reboot";
     echo -e '\n'
 done
 #############
@@ -341,7 +340,7 @@ echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (NPDVs) 🚨 ${end}"
 
 loja
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 clear
 ##########
   clear
@@ -350,11 +349,11 @@ echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (NPDVs) 🚨 ${end}"
 
 loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA DESLIGAR: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛${end}"
 sleep 1
-if ! ping -c 1 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -366,7 +365,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -376,9 +375,9 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$fx.$ip "halt";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "halt";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end -$bu $IPSERV.$fx.$ip $end- $vr Conectado ✔$end"
+echo -e "$a IP $end -$bu $IPSERV.$FX.$IP $end- $vr Conectado ✔$end"
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -399,18 +398,18 @@ echo -e "${bu}---------------------------------------------------${end}
 ${bu}--------------------------------------------------- ${end}"
 echo -e " DIGITE A${y} FAIXA DA FILIAL${end} ${bu}QUE DESEJA ATUALIZAR: ${end}"
 echo -e " Caso queira desistir${y}, apenas deixe o campo em branco e dê enter... ${end}"
-read -p " $IPSERV." $read faixa
+read -p " $IPSERV." $read FAIXA
 clear
 echo -e "${bu}--------------------------------------------------- ${end}"
 echo -e "${y}⌛Aguarde enquanto executo o comando 
 ${bu}it-update-pdv.sh${end} ${y}em todos os terminais ⌛ ${end}
 ${bu}--------------------------------------------------- ${end}"
 ##############
-${pdvs_ips}
-for pdvs_ips in ${pdvs_ips}
+${PDVS_IPS}
+for PDVS_IPS in ${PDVS_IPS}
 do
-    echo -e "${bu}Atualizando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${faixa}.${pdvs_ips}${endc} ⌛"
-    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${faixa}.${pdvs_ips} "it-update-pdv.sh";
+    echo -e "${bu}Atualizando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${FAIXA}.${PDVS_IPS}${endc} ⌛"
+    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${FAIXA}.${PDVS_IPS} "it-update-pdv.sh";
     echo -e '\n'
 done
 #############
@@ -432,7 +431,7 @@ echo -e "${r}🚨 DESLIGAMENTO DOS TERMINAIS (NPDVs) 🚨"
 echo -e "${v}--------------------------------------------------- ${end}"
 echo -e " DIGITE A${y} FAIXA DA FILIAL${end} ${v}QUE DESEJA DESLIGAR: ${end}"
 echo -e " Caso queira desistir${y}, apenas deixe o campo em branco e dê enter... ${end}"
-read -p " $IPSERV." $read faixa
+read -p " $IPSERV." $read FAIXA
 clear
 echo -e "${v}--------------------------------------------------- ${end}"
 echo -e "${y}⌛Aguarde enquanto executo o comando 
@@ -440,10 +439,10 @@ ${v}halt${end} ${y}em todos os terminais ⌛ ${end}
 ${v}--------------------------------------------------- ${end}"
 ##############
 ${pdv_ips}
-for pdvs_ips in ${pdvs_ips}
+for PDVS_IPS in ${PDVS_IPS}
 do
-    echo -e "${bu}Desligando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${faixa}.${pdvs_ips}${endc} ⌛"
-    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${faixa}.${pdvs_ips} "halt";
+    echo -e "${bu}Desligando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${FAIXA}.${PDVS_IPS}${endc} ⌛"
+    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${FAIXA}.${PDVS_IPS} "halt";
     echo -e '\n'
 done
 #############
@@ -467,7 +466,7 @@ echo -e " ${c}ATUALIZAÇÃO DE IMAGEM DOS TERMINAIS (NPDVs)
   do terminal${end}
 ${c}--------------------------------------------------- ${end}"
 echo -e "DIGITE A ${c}FAIXA${end} ${br}REFERÊNTE A SUA FILIAL: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 clear
 ##########
   clear
@@ -480,11 +479,11 @@ echo -e " ${c}ATUALIZAÇÃO DE IMAGEM DOS TERMINAIS (NPDVs)
   do terminal${end}
 ${c}--------------------------------------------------- ${end}"
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}QUE DESEJA ATUALIZAR IMAGEM: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${bu}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛ ${end}"
 sleep 1
-if ! ping -c 2 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 2 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -496,7 +495,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -506,9 +505,9 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$fx.$ip "it-update-imagens.sh";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "it-update-imagens.sh";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end - $bu $IPSERV.$fx.$ip $end - $vr Conectado$end"
+echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -528,7 +527,7 @@ echo -e "${bu}---------------------------------------------------${end}
 ${bu}--------------------------------------------------- ${end}"
 echo -e " DIGITE A${y} FAIXA DA FILIAL${end} ${bu}QUE DESEJA ATUALIZAR: ${end}"
 echo -e " Caso queira desistir${y}, apenas deixe o campo em branco e dê enter... ${end}"
-read -p " $IPSERV." $read faixa
+read -p " $IPSERV." $read FAIXA
 clear
 echo -e "${bu}--------------------------------------------------- ${end}"
 echo -e "${y}⌛Aguarde enquanto executo o comando 
@@ -536,10 +535,10 @@ ${bu}it-update-imagens.sh${end} ${y}em todos os terminais ⌛ ${end}
 ${bu}--------------------------------------------------- ${end}"
 ##############
 ${pdv_ips}
-for pdvs_ips in ${pdvs_ips}
+for PDVS_IPS in ${PDVS_IPS}
 do
-    echo -e "${bu}Atualizando imagem do terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${faixa}.${pdvs_ips}${endc} ⌛"
-    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${faixa}.${pdvs_ips} "it-update-imagens.sh";
+    echo -e "${bu}Atualizando imagem do terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${FAIXA}.${PDVS_IPS}${endc} ⌛"
+    sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@${IPSERV}.${FAIXA}.${PDVS_IPS} "it-update-imagens.sh";
     echo -e '\n'
 done
 #############
@@ -562,7 +561,7 @@ echo -e " ${r}REINICIALIZAÇÃO DO MAXIPOS (NPDVs)
   do terminal${end}
 ${r}--------------------------------------------------- ${end}"
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 clear
 ##########
   clear
@@ -575,11 +574,11 @@ echo -e " ${r}REINICIALIZAÇÃO DO MAXIPOS (NPDVs)
   do terminal${end}
 ${r}--------------------------------------------------- ${end}"
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA REINICIAR O MAXIPOS: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛${end}"
 sleep 1
-if ! ping -c 1 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -591,7 +590,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -601,9 +600,9 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$fx.$ip "it-restart-application.sh";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "it-restart-application.sh";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end -$bu $IPSERV.$fx.$ip $end- $vr Conectado ✔$end"
+echo -e "$a IP $end -$bu $IPSERV.$FX.$IP $end- $vr Conectado ✔$end"
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -622,7 +621,7 @@ echo -e " ${bu}🌐 TESTE DE CONEXÕES (NPDVs) 🌐
   com faixa + final de seu endereçamento...${end}
 ${bu}--------------------------------------------------- ${end}"
 echo -e "DIGITE A ${a}FAIXA${end} ${bu}DO IP QUE DESEJA FAZER O TESTE DE CONEXÃO: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 ##########
 clear
 logoNPDVs
@@ -632,11 +631,11 @@ echo -e " ${bu}🌐 TESTE DE CONEXÕES (NPDVs) 🌐
   com faixa + final de seu endereçamento...${end}
 ${bu}--------------------------------------------------- ${end}"
 echo -e "DIGITE O ${a}FINAL DO IP${end} ${bu}QUE DESEJA FAZER O TESTE DE CONEXÃO: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${bu}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛${end}"
 sleep 2
-if ! ping -c 1 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -648,7 +647,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -659,9 +658,9 @@ echo -e "$vr======================================= $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================= $end"  
 echo -e "$vr======[ $br Status da requisição $ec $vr]======     $end"
-echo -e "$a IP $end - $bu $IPSERV.$fx.$ip $end - $vr Conectado ✔$end"      
+echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado ✔$end"      
 echo -e "$vr======================================= $end"
-ping -c 5 $IPSERV.$fx.$ip
+ping -c 5 $IPSERV.$FX.$IP
 echo && echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
 fi
@@ -675,10 +674,10 @@ echo -e " ${bu}🌐 TESTE DE CONEXÕES (NPDVs) 🌐
 ${br}Faça o teste de conexão de um determinado IP...${end}
 ${bu}--------------------------------------------------- ${end}"
 echo -e "DIGITE O ${y}IP${end} ${bu}OU LINK QUE DESEJA FAZER O TESTE DE CONEXÃO: ${end}"
-read -p "http://"$read ip_link
+read -p "http://"$read IP_LINK
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o servidor ⌛${end}"
 ##########
-if ! ping -c 1 $ip_link >> /dev/null ; then
+if ! ping -c 1 $IP_LINK >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -690,7 +689,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $ip_link $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IP_LINK $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -701,9 +700,9 @@ echo -e "$vr======================================= $end"
 echo -e "$vr         SERVIDOR CONECTADO.  $end "
 echo -e "$vr======================================= $end"  
 echo -e "$vr======[ $br Status da requisição $ec $vr]======     $end"
-echo -e "$a IP $end - $bu $ip_link $end - $vr Conectado ✔$end"      
+echo -e "$a IP $end - $bu $IP_LINK $end - $vr Conectado ✔$end"      
 echo -e "$vr======================================= $end"
-ping -c 5 $ip_link
+ping -c 5 $IP_LINK
 echo && echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
 fi
@@ -762,7 +761,7 @@ echo -e " ${r}APAGAR ARQUIVOS TEMPORÁRIOS MAXIPOS (NPDVs)
   do terminal${end}
 ${r}--------------------------------------------------- ${end}"
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
-read -p "$IPSERV." $read fx
+read -p "$IPSERV." $read FX
 clear
 ##########
   clear
@@ -775,11 +774,11 @@ echo -e " ${r}APAGAR ARQUIVOS TEMPORÁRIOS MAXIPOS (NPDVs)
   do terminal${end}
 ${r}--------------------------------------------------- ${end}"
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA APAGAR A PASTA TEMPORÁRIA: ${end}"
-read -p "$IPSERV.$fx." $read ip
+read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛${end}"
 sleep 1
-if ! ping -c 1 $IPSERV.$fx.$ip >> /dev/null ; then
+if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
 echo -e "$v       TERMINAL DESCONECTADO.           $end"
@@ -791,7 +790,7 @@ echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
 echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
 echo && echo -e "$v======================================= $end"
 echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu $IPSERV.$fx.$ip $end- $v Sem conexão ✗$end" 
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
 echo -e "$v======================================= $end"
 echo -en "${y}Precione enter para retornar para o manu.${endc}"
 read input
@@ -801,9 +800,9 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$fx.$ip "rm -rf /mpos/maxipos/tmp/*";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "rm -rf /mpos/maxipos/tmp/*";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end -$bu $IPSERV.$fx.$ip $end- $vr Conectado ✔$end"
+echo -e "$a IP $end -$bu $IPSERV.$FX.$IP $end- $vr Conectado ✔$end"
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
