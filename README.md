@@ -12,6 +12,6 @@ sudo apt install sshpass wget git && wget https://raw.githubusercontent.com/nils
 ```
 
 ## Após a instalação, utilize o comando 
-´´´bash 
+´´´bash
 ./npdvs
 ´´´
