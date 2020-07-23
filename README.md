@@ -11,4 +11,7 @@ Comando para instalação no desktop (Debian based)
 sudo apt install sshpass wget git && wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs.sh && chmod +x npdvs && clear && ./npdvs
 ```
 
-## Após a instalação, o comando para executaro o script será ./npdvs
+## Após a instalação, utilize o comando 
+´´´bash 
+./npdvs
+´´´
