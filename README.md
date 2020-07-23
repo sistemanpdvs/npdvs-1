@@ -1,10 +1,10 @@
 ### NPDVs
 Script para automatização de tarefas. 
-Possue algumas configurações em suas variáveis para uso em desktop em diferentes resoluções de telas.
-RES = Resolução de vídeo
-PDVS_IPS = Finais dos IPs que deseja que o comando seja execultado simultaneamente.
-OS PRINCIPAIS FICAM NAS PRIMEIRAS LINHAS. 
-
+Possue algumas configurações em suas variáveis para uso em desktop em diferentes resoluções de telas.  
+RES = Resolução de vídeo  
+PDVS_IPS = Finais dos IPs que deseja que o comando seja execultado simultaneamente.  
+OS PRINCIPAIS FICAM NAS PRIMEIRAS LINHAS.  
+  
 
 By: Nilsonlinux
 
