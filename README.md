@@ -1,7 +1,14 @@
 # npdvs
 By: Nilsonlinux
 
-```bash
+
 Comando para instalação (Termux)
-pkg update && pkg install sshpass wget git && apt install openssh && wget https://raw.githubusercontent.com/nilsonlinux/CliPDVs/master/npdvs.sh && chmod +x npdvs.sh && clear && ./npdvs.sh
+```bash
+pkg update && pkg install sshpass wget git && apt install openssh && wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs && chmod +x npdvs && clear && ./npdvs
 ```
+Comando para instalação no desktop (Debian based)
+```bash
+sudo apt install sshpass wget git && wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs.sh && chmod +x npdvs.sh && clear && ./npdvs
+```
+
+## Após a instalação, o comando para executaro o script será ./npdvs
