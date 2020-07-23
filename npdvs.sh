@@ -4,6 +4,7 @@ i#!/bin/bash
 # Automatização sobre demanda
 # Nilsonlinux 23/07/2020
 # Colabore com o projeto
+# https://github.com/nilsonlinux/npdvs
 # -------------------------------------------------------
 # Variables
 # b=bold u=underline bl=black r=red g=green
@@ -11,7 +12,7 @@ i#!/bin/bash
 # endc=end-color end=end-argument
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 gt="100"
-version="2.7"
+version="2.8"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
