@@ -19,9 +19,8 @@ spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
 v="\033[0;31m"       #vermelho
-vr="\033[01;32m"      #Verde
+vr="\033[01;32m"     #Verde
 br="\033[0;37m"      #Branco
-# Variável com a lista de máquinas
 b='\033[1m'
 u='\033[4m'
 bl='\E[30m'
@@ -36,8 +35,7 @@ endc='\E[0m'
 end='\033[0m'
 #LOJA =========
 loja () {
-echo -e "
-${bu} TERMINAL ${endc} ${p} CAIXA  ${endc}      ${vr}  IP  ${endc}
+echo -e "${b} TERMINAL ${endc}  ${b} CAIXA  ${endc}     ${b}  IP  ${endc}
 ${vr}   123        01      192.168.3.59   ${endc}
 ${g}   103        02      192.168.3.122  ${endc}
 ${vr}   104        03      192.168.3.123  ${endc}
@@ -194,7 +192,6 @@ installfirefox () {
 reiniciar_pdvs () {
   logoNPDVs
 echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs)${end}"
-
 loja
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
 read -p "$IPSERV." $read FX
@@ -203,7 +200,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs) ${end}"
-
 loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA REINICIAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
