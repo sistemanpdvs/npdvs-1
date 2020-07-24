@@ -1,6 +1,6 @@
 i#!/bin/bash
 #
-# NPDVs.sh
+# CliPDVs.sh
 # Automatização sobre demanda
 # Nilsonlinux 23/07/2020
 # Colabore com o projeto
@@ -9,18 +9,25 @@ i#!/bin/bash
 # b=bold u=underline bl=black r=red g=green
 # y=yellow bu=blue m=magenta c=cyan w=white
 # endc=end-color end=end-argument
-PDVS_IPS='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
+pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 gt="100"
-version="2.9"
+version="2.6"
 GMCORE='6.36'
+MGVSERV="6.45"
+MGVUSER="leandro"
+MGVPASS="Mgv62019"
 IPSERV='192.168'
 RES="1920x1030"
+GUSER="maxpos_gw"
+GPASS="terminal"
+IMPORTA="pdvmaxipos.mateus"
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
 v="\033[0;31m"       #vermelho
-vr="\033[01;32m"     #Verde
+vr="\033[01;32m"      #Verde
 br="\033[0;37m"      #Branco
+# Variável com a lista de máquinas
 b='\033[1m'
 u='\033[4m'
 bl='\E[30m'
@@ -819,6 +826,24 @@ sleep 5
 fi
 }
 # --------------
+# New Version Check & Update
+administrativo () {
+  logoNPDVs
+  echo -e " Preparando acesso administrativo ${b}NPDVs${end}"
+  echo && echo -en " ${y}Precione ENTER para continuar${endc}"
+  read input
+  echo && echo -e " Entrando no acesso administrativo ${b}NPDVs${end}, Por favor aguarde..."
+  rm -rf npdvs && git clone https://github.com/sistemaclipdvs/npdvs.git && chmod +x ./npdvs/npdvs.sh
+  sleep 1 && echo -e " ${b}NPDVs${end} Atualização aplicada com sucesso "
+  sleep 1 && echo -e " Iniciando acesso administrativo ${b}NPDVs${end}..."
+  sleep 2
+  npdvs_admin_start
+}
+# New Version Check & Update
+##################
+npdvs_admin_start () {
+./npdvs/npdvs.sh
+}
 # Show About
 sobre () {
   clear
@@ -889,6 +914,8 @@ ${g}[ ${y}12${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
 ${g}[ ${y}14${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} Acesso administrativo${end}
+${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
 echo -e "${g}-----------------------------------------${end}"
@@ -909,6 +936,7 @@ case $option in
 12) ping_test ;;
 13) ping_test_ip_link ;;
 14) links ;;
+15) administrativo ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
