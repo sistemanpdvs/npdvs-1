@@ -192,7 +192,6 @@ installfirefox () {
 reiniciar_pdvs () {
   logoNPDVs
 echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs)${end}"
-loja
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
 read -p "$IPSERV." $read FX
 clear
@@ -244,8 +243,6 @@ fi
 atualizar_pdvs () {
   logoNPDVs
 echo -e " ${c}ATUALIZAÇÃO DOS TERMINAIS (NPDVs)${end}"
-
-loja
 echo -e "DIGITE A ${c}FAIXA${end} ${br}REFERÊNTE A SUA FILIAL: ${end}"
 read -p "$IPSERV." $read FX
 clear
@@ -253,7 +250,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${c}ATUALIZAÇÃO DOS TERMINAIS (NPDVs) ${end}"
-
 loja
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}QUE DESEJA ATUALIZAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
@@ -332,8 +328,6 @@ read input
 desligar_pdvs () {
   logoNPDVs
 echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (NPDVs) 🚨 ${end}"
-
-loja
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
 read -p "$IPSERV." $read FX
 clear
@@ -341,7 +335,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (NPDVs) 🚨 ${end}"
-
 loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA DESLIGAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
@@ -466,13 +459,8 @@ clear
 ##########
   clear
   logoNPDVs
-echo -e " ${c}ATUALIZAÇÃO DE IMAGEM DOS TERMINAIS (NPDVs)
----------------------------------------------------${end}
-  ${br}Atualização de imagem dos terminais 
-  por faixa (IP). Digite a faixa de sua filial, 
-  depois dê enter para digitar o IP final 
-  do terminal${end}
-${c}--------------------------------------------------- ${end}"
+echo -e " ${c}ATUALIZAÇÃO DE IMAGEM DOS TERMINAIS (NPDVs)"
+loja
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}QUE DESEJA ATUALIZAR IMAGEM: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${bu}---------------------------------------------------${end}"
@@ -561,13 +549,8 @@ clear
 ##########
   clear
 logoNPDVs
-echo -e " ${r}REINICIALIZAÇÃO DO MAXIPOS (NPDVs)
----------------------------------------------------${end}
-  ${br}Reinicialização do MaxiPOS 
-  por faixa (IP). Digite a faixa de sua filial, 
-  depois dê enter para digitar o IP final 
-  do terminal${end}
-${r}--------------------------------------------------- ${end}"
+echo -e " ${r}REINICIALIZAÇÃO DO MAXIPOS (NPDVs)"
+loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA REINICIAR O MAXIPOS: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
