@@ -36,33 +36,33 @@ end='\033[0m'
 #LOJA =========
 loja () {
 echo -e "${b} TERMINAL ${endc}  ${b} CAIXA  ${endc}     ${b}  IP  ${endc}
-${vr}   123        01      192.168.$FX.59   ${endc}
-${g}   103        02      192.168.$FX.122  ${endc}
-${vr}   104        03      192.168.$FX.123  ${endc}
-${g}   105        04      192.168.$FX.124  ${endc}
-${vr}   106        05      192.168.$FX.25   ${endc}
-${g}   107        06      192.168.$FX.102  ${endc}
-${vr}   108        07      192.168.$FX.103  ${endc}
-${g}   109        08      192.168.$FX.104  ${endc}
-${vr}   110        09      192.168.$FX.139  ${endc}
-${g}   111        10      192.168.$FX.105  ${endc}
-${vr}   112        11      192.168.$FX.107  ${endc}
-${g}   113        12      192.168.$FX.120  ${endc}
-${vr}   114        13      192.168.$FX.106  ${endc}
-${g}   115        14      192.168.$FX.110  ${endc}
-${vr}   116        15      192.168.$FX.11   ${endc}
-${g}   117        16      192.168.$FX.112  ${endc}
-${vr}   118        17      192.168.$FX.113  ${endc} 
-${g}   119        18      192.168.$FX.114  ${endc}
-${vr}   128        19      192.168.$FX.128  ${endc}
-${g}   121        20      192.168.$FX.116  ${endc}
-${vr}   126        21      192.168.$FX.132  ${endc}
-${g}   122        22      192.168.$FX.55   ${endc}
-${vr}   124    ELETRO 01   192.168.$FX.117  ${endc}
-${g}   125    ELETRO 02   192.168.$FX.225  ${endc}
-${vr}   127     PADARIA    192.168.$FX.138  ${endc}
-${g}   120     BALCÃO     192.168.$FX.130  ${endc}
-${vr}   126     BOTECO     192.168.$FX.132  ${end}"
+${vr}   123        01      $IPSERV.$FX.59   ${endc}
+${g}   103        02      $IPSERV.$FX.122  ${endc}
+${vr}   104        03      $IPSERV.$FX.123  ${endc}
+${g}   105        04      $IPSERV.$FX.124  ${endc}
+${vr}   106        05      $IPSERV.$FX.25   ${endc}
+${g}   107        06      $IPSERV.$FX.102  ${endc}
+${vr}   108        07      $IPSERV.$FX.103  ${endc}
+${g}   109        08      $IPSERV.$FX.104  ${endc}
+${vr}   110        09      $IPSERV.$FX.139  ${endc}
+${g}   111        10      $IPSERV.$FX.105  ${endc}
+${vr}   112        11      $IPSERV.$FX.107  ${endc}
+${g}   113        12      $IPSERV.$FX.120  ${endc}
+${vr}   114        13      $IPSERV.$FX.106  ${endc}
+${g}   115        14      $IPSERV.$FX.110  ${endc}
+${vr}   116        15      $IPSERV.$FX.11   ${endc}
+${g}   117        16      $IPSERV.$FX.112  ${endc}
+${vr}   118        17      $IPSERV.$FX.113  ${endc} 
+${g}   119        18      $IPSERV.$FX.114  ${endc}
+${vr}   128        19      $IPSERV.$FX.128  ${endc}
+${g}   121        20      $IPSERV.$FX.116  ${endc}
+${vr}   126        21      $IPSERV.$FX.132  ${endc}
+${g}   122        22      $IPSERV.$FX.55   ${endc}
+${vr}   124    ELETRO 01   $IPSERV.$FX.117  ${endc}
+${g}   125    ELETRO 02   $IPSERV.$FX.225  ${endc}
+${vr}   127     PADARIA    $IPSERV.$FX.138  ${endc}
+${g}   120     BALCÃO     $IPSERV.$FX.130  ${endc}
+${vr}   126     BOTECO     $IPSERV.$FX.132  ${end}"
     echo
 }
 #LOJA =========
