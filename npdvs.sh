@@ -81,7 +81,7 @@ ${vr}   $TERMINAL_13        13      $IPSERV.$FX.$IP_CAIXA_13       ${endc}
  ${g}   $TERMINAL_14        14      $IPSERV.$FX.$IP_CAIXA_14       ${endc}
 ${vr}   $TERMINAL_15        15      $IPSERV.$FX.$IP_CAIXA_15       ${endc}
  ${g}   $TERMINAL_16        16      $IPSERV.$FX.$IP_CAIXA_16       ${endc}
-${vr}   $TERMINAL_17        17      $IPSERV.$FX.$IP_CAIXA_17       ${endc} 
+${vr}   $TERMINAL_17        17      $IPSERV.$FX.$IP_CAIXA_17       ${endc}
  ${g}   $TERMINAL_18        18      $IPSERV.$FX.$IP_CAIXA_18       ${endc}
 ${vr}   $TERMINAL_19        19      $IPSERV.$FX.$IP_CAIXA_19       ${endc}
  ${g}   $TERMINAL_20        20      $IPSERV.$FX.$IP_CAIXA_20       ${endc}
