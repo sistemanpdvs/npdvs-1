@@ -11,7 +11,7 @@ i#!/bin/bash
 # endc=end-color end=end-argument
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 gt="100"
-version="3.0"
+version="2.9"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
@@ -159,7 +159,7 @@ npdvsrestart () {
   exit
 }
 # New Version Check & Update
-cliupdate () {
+NPDVsupdate () {
   logoNPDVs
   echo -e " Preparando atualização ${b}NPDVs${end}"
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
@@ -182,7 +182,7 @@ NPDVsCheck () {
     echo && echo -en " ${y}Continuar com a atualização? {s/n}${endc} "
     read option
     case $option in
-      s) cliupdate ;;
+      s) NPDVsupdate ;;
       n) echo -e " ${y}Ok, Iniciando NPDVs.${endc}"; sleep 1; aptgupd ;;
       *) echo " \"$option\" Opção inválida, tente outra opção."; sleep 1; NPDVsCheck ;;
     esac
