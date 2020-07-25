@@ -112,7 +112,7 @@ logoNPDVs () {
 }
 # NPDVs
 # Exit NPDVs
-NPDVsExit () {
+npdvsexit () {
   logoNPDVs 
   echo -e " Obrigado por utilizar o ${b}NPDVs${end}
  Desenvolvido por: Nilsonlinux
@@ -149,7 +149,7 @@ checkinternet () {
  ${y}Você precisa está conectado para a utilização do NPDVs${endc}"
     echo -e " ${b}O Script está sendo${end} encerrado..."
     echo && sleep 5
-    NPDVsExit
+    npdvsexit
   fi
 }
 ##################
@@ -933,7 +933,7 @@ case $option in
 14) links ;;
 15) administrativo ;;
 s) sobre ;;
-0) NPDVsExit ;;
+0) npdvsexit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
 esac
 done
