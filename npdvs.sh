@@ -144,7 +144,7 @@ NPDVsExit () {
 checkinternet () {
   if ping -c 1 google.com &>/dev/null; then
     echo -e " Checando conexão com a internet: ${vr}CONECTADO ✅${endc}"
-    NPDVsCheck
+    npdvscheck
   else
     echo -e " Checando conexão com a internet: ${r}DESCONECTADO ❌${endc}
  ${y}Você precisa está conectado para a utilização do NPDVs${endc}"
@@ -159,7 +159,7 @@ npdvsrestart () {
   exit
 }
 # New Version Check & Update
-NPDVsupdate () {
+npdvsupdate () {
   logoNPDVs
   echo -e " Preparando atualização ${b}NPDVs${end}"
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
@@ -172,7 +172,7 @@ NPDVsupdate () {
   npdvsrestart
 }
 # New Version Check & Update
-NPDVsCheck () {
+npdvscheck () {
   changelog=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/changelog.txt)
   uversion=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/version.txt)
   if [[ $uversion > $version ]]; then
@@ -182,9 +182,9 @@ NPDVsCheck () {
     echo && echo -en " ${y}Continuar com a atualização? {s/n}${endc} "
     read option
     case $option in
-      s) NPDVsupdate ;;
+      s) npdvsupdate ;;
       n) echo -e " ${y}Ok, Iniciando NPDVs.${endc}"; sleep 1; aptgupd ;;
-      *) echo " \"$option\" Opção inválida, tente outra opção."; sleep 1; NPDVsCheck ;;
+      *) echo " \"$option\" Opção inválida, tente outra opção."; sleep 1; npdvscheck ;;
     esac
   else
     echo -e " Checando novas atualizações: ${g}NPDVs está atualizado${endc}"
