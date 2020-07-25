@@ -11,9 +11,8 @@ i#!/bin/bash
 # endc=end-color end=end-argument
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 gt="100"
-version="2.9"
+version="3.0"
 GMCORE='6.36'
-MGVSERV="6.45"
 IPSERV='192.168'
 RES="1920x1030"
 GUSER="maxpos_gw"
