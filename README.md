@@ -15,7 +15,7 @@ pkg update && pkg install sshpass wget git && apt install openssh && wget https:
 ```
 Comando para instalação no desktop (Debian based)
 ```bash
-sudo apt install sshpass wget git && wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs.sh && chmod +x npdvs.sh && clear && ./npdvs.sh
+sudo apt install rdesktop sshpass wget git && wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs.sh && chmod +x npdvs.sh && clear && ./npdvs.sh
 ```
 
 ## Após a instalação, utilize o comando 
