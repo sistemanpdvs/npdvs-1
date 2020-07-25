@@ -820,20 +820,6 @@ echo -e "${y}Retornando para o menu principal.
 sleep 5
 fi
 }
-# --------------
-# New Version Check & Update
-administrativo () {
-  logoNPDVs
-  echo -e " Preparando acesso administrativo ${b}NPDVs${end}"
-  echo && echo -en " ${y}Precione ENTER para continuar${endc}"
-  read input
-  echo && echo -e " Entrando no acesso administrativo ${b}NPDVs${end}, Por favor aguarde..."
-  rm -rf npdvs && git clone https://github.com/sistemaclipdvs/npdvs.git && chmod +x ./npdvs/npdvs.sh
-  sleep 1 && echo -e " ${b}NPDVs${end} Atualização aplicada com sucesso "
-  sleep 1 && echo -e " Iniciando acesso administrativo ${b}NPDVs${end}..."
-  sleep 2
-  npdvs_admin_start
-}
 # New Version Check & Update
 ##################
 npdvs_admin_start () {
@@ -931,7 +917,6 @@ case $option in
 12) ping_test ;;
 13) ping_test_ip_link ;;
 14) links ;;
-15) administrativo ;;
 s) sobre ;;
 0) npdvsexit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
