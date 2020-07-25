@@ -11,7 +11,7 @@ i#!/bin/bash
 # endc=end-color end=end-argument
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 gt="100"
-version="3.0"
+version="2.9"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
@@ -144,7 +144,7 @@ NPDVsExit () {
 checkinternet () {
   if ping -c 1 google.com &>/dev/null; then
     echo -e " Checando conexão com a internet: ${vr}CONECTADO ✅${endc}"
-    NPDVsupdate
+    NPDVsCheck
   else
     echo -e " Checando conexão com a internet: ${r}DESCONECTADO ❌${endc}
  ${y}Você precisa está conectado para a utilização do NPDVs${endc}"
