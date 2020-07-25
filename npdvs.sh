@@ -144,7 +144,7 @@ NPDVsExit () {
 checkinternet () {
   if ping -c 1 google.com &>/dev/null; then
     echo -e " Checando conexão com a internet: ${vr}CONECTADO ✅${endc}"
-    NPDVsCheck
+    NPDVsupdate
   else
     echo -e " Checando conexão com a internet: ${r}DESCONECTADO ❌${endc}
  ${y}Você precisa está conectado para a utilização do NPDVs${endc}"
