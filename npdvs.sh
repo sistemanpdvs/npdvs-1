@@ -17,7 +17,6 @@ IPSERV='192.168'
 RES="1920x1030"
 GUSER="maxpos_gw"
 GPASS="terminal"
-IMPORTA="pdvmaxipos.mateus"
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
