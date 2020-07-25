@@ -895,8 +895,6 @@ ${g}[ ${y}12${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
 ${g}[ ${y}14${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} Acesso administrativo${end}
-${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
 echo -e "${g}-----------------------------------------${end}"
