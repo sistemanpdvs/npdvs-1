@@ -193,7 +193,7 @@ NPDVsStart () {
   exit
 }
 # New Version Check & Update
-cliupdate () {
+NPDVsupdate () {
   logoNPDVs
   echo -e " Preparando atualização ${b}NPDVs${end}"
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
@@ -206,7 +206,7 @@ cliupdate () {
   NPDVsStart
 }
 # New Version Check & Update
-CLiCheck () {
+NPDVsCheck () {
   changelog=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/changelog.txt)
   uversion=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/version.txt)
   if [[ $uversion > $version ]]; then
@@ -216,7 +216,7 @@ CLiCheck () {
     echo && echo -en " ${y}Continuar com a atualização? {s/n}${endc} "
     read option
     case $option in
-      s) cliupdate ;;
+      s) NPDVsupdate ;;
       n) echo -e " ${y}Ok, Iniciando NPDVs.${endc}"; sleep 1; aptgupd ;;
       *) echo " \"$option\" Opção inválida, tente outra opção."; sleep 1; NPDVsCheck ;;
     esac
@@ -885,6 +885,25 @@ links () {
   echo && echo -en " ${yellow}Precione enter para retornar ao Menu.${endc}"
   read input
 }
+# ADM
+adm () {
+  logoNPDVs
+  echo -e " Preparando acesso administrativo ${b}NPDVs${end}"
+  echo && echo -en " ${y}Precione ENTER para continuar${endc}"
+  read inpute
+  echo && echo -e " Por favor, ${b}Digite o account e senha${end}, para o acesso..."
+  git clone https://github.com/sistemaclipdvs/npdvs.git
+  sleep 1 && echo -e " ${b}NPDVs${end} Acesso concluído com sucesso "
+  sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
+  sleep 2
+  NPDVsADMstart
+}
+##################
+NPDVsADMstart () {
+  $spath/npdvs/npdvs.sh
+  exit
+}
+# ADM
 # Infinite Loop To Show Menu Untill Exit
 while :
 do
@@ -907,6 +926,8 @@ ${g}[ ${y}12${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
 ${g}[ ${y}14${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
+${g}[ ${y}15${end}${g}]${end} ${v} Acesso administrativo${end}
+${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
 echo -e "${g}-----------------------------------------${end}"
@@ -924,9 +945,10 @@ case $option in
 9) atualizar_imagem_todos ;;
 10) dell_past_temp ;;
 11) gmcore ;;
-15) ping_test ;;
-16) ping_test_ip_link ;;
-17) links ;;
+12) ping_test ;;
+13) ping_test_ip_link ;;
+14) links ;;
+15) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
